@@ -1,0 +1,213 @@
+{
+  "tool": {
+    "id": "dose-maxima-anestesico-local",
+    "title": "Dose máxima de anestésico local",
+    "short": "Lidocaína, bupivacaína e ropivacaína por peso",
+    "desc": "Calcule a dose máxima de lidocaína (com e sem vasoconstritor), bupivacaína e ropivacaína pelo peso, com teto absoluto e volume pela concentração.",
+    "lead": "Estima a dose máxima recomendada de anestésico local pelo peso, respeitando o teto absoluto, e converte em volume na concentração usada, para prevenir intoxicação sistêmica.",
+    "spec": [
+      "anestesiologia",
+      "medicina-de-emergencia",
+      "cirurgia-plastica",
+      "dermatologia",
+      "cirurgia-geral"
+    ],
+    "tier": 1,
+    "fields": [
+      [
+        "droga",
+        "Anestésico local",
+        "sel",
+        {
+          "opts": {
+            "lido": "Lidocaína sem vasoconstritor",
+            "lidoepi": "Lidocaína com epinefrina",
+            "bupi": "Bupivacaína sem vasoconstritor",
+            "bupiepi": "Bupivacaína com epinefrina",
+            "ropi": "Ropivacaína"
+          }
+        }
+      ],
+      [
+        "peso",
+        "Peso",
+        "num",
+        {
+          "min": 3,
+          "max": 200,
+          "step": 0.1,
+          "unit": "kg",
+          "ph": "70"
+        }
+      ],
+      [
+        "conc",
+        "Concentração da solução",
+        "num",
+        {
+          "min": 0.1,
+          "max": 5,
+          "step": 0.05,
+          "unit": "%",
+          "ph": "1",
+          "opt": true
+        }
+      ]
+    ],
+    "formula": "<p><strong>Dose máxima</strong> = menor valor entre (mg/kg × peso) e o teto absoluto do fármaco.</p><p><strong>Volume máximo</strong> (mL) = dose máxima ÷ (concentração em % × 10), pois 1% = 10 mg/mL.</p>",
+    "table": [
+      [
+        "Anestésico",
+        "mg/kg",
+        "Teto absoluto"
+      ],
+      [
+        "Lidocaína sem vasoconstritor",
+        "4,5",
+        "300 mg"
+      ],
+      [
+        "Lidocaína com epinefrina",
+        "7",
+        "500 mg"
+      ],
+      [
+        "Bupivacaína sem vasoconstritor",
+        "2,5",
+        "175 mg"
+      ],
+      [
+        "Bupivacaína com epinefrina",
+        "3",
+        "225 mg"
+      ],
+      [
+        "Ropivacaína",
+        "3",
+        "200 mg"
+      ]
+    ],
+    "table_note": "Valores de referência habituais para dose única em adultos. Rosenberg (2004) mostra que esses limites não são baseados em evidência robusta e variam com o local de injeção.",
+    "tips": [
+      "A toxicidade depende do local: a absorção é maior em bloqueio intercostal &gt; caudal &gt; peridural &gt; plexo braquial &gt; subcutâneo. Use doses menores em áreas muito vascularizadas.",
+      "Doses de anestésicos locais diferentes são <strong>aditivas</strong>: ao misturar lidocaína e bupivacaína, some as frações da dose máxima de cada um.",
+      "Em obesos, calcule pelo peso magro ou ideal; reduza a dose em idosos, cardiopatas, hepatopatas, nefropatas e gestantes.",
+      "Aspire antes de injetar, injete em alíquotas de 3 a 5 mL e use ultrassom quando possível. Tenha emulsão lipídica a 20% disponível: é o tratamento da intoxicação sistêmica (LAST).",
+      "A infiltração tumescente em cirurgia plástica usa soluções muito diluídas e segue limites próprios, diferentes dos desta tabela."
+    ],
+    "sources": [
+      [
+        "Rosenberg PH, Veering BT, Urmey WF. Maximum recommended doses of local anesthetics: a multifactorial concept. Reg Anesth Pain Med, 2004.",
+        "https://doi.org/10.1016/j.rapm.2004.08.003"
+      ],
+      [
+        "Neal JM et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity: executive summary 2017. Reg Anesth Pain Med, 2018.",
+        "https://doi.org/10.1097/AAP.0000000000000720"
+      ]
+    ],
+    "cases": [
+      [
+        "Lidocaína 1% sem vaso, 70 kg: 315 mg limitado a 300 mg = 30 mL",
+        {
+          "droga": "lido",
+          "peso": 70,
+          "conc": 1
+        },
+        {
+          "raw": {
+            "dose": 300,
+            "vol": 30
+          },
+          "verdict": "teto",
+          "level": "info"
+        }
+      ],
+      [
+        "Lidocaína 2% com epinefrina, 50 kg: 350 mg = 17,5 mL",
+        {
+          "droga": "lidoepi",
+          "peso": 50,
+          "conc": 2
+        },
+        {
+          "raw": {
+            "dose": 350,
+            "vol": 17.5
+          },
+          "verdict": "peso",
+          "level": "info"
+        }
+      ],
+      [
+        "Bupivacaína 0,5% sem vaso, 60 kg: 150 mg = 30 mL",
+        {
+          "droga": "bupi",
+          "peso": 60,
+          "conc": 0.5
+        },
+        {
+          "raw": {
+            "dose": 150,
+            "vol": 30
+          },
+          "level": "info"
+        }
+      ],
+      [
+        "Ropivacaína 0,75%, 80 kg: 240 mg limitado a 200 mg = 26,7 mL",
+        {
+          "droga": "ropi",
+          "peso": 80,
+          "conc": 0.75
+        },
+        {
+          "raw": {
+            "dose": 200,
+            "vol": 26.667
+          },
+          "level": "info"
+        }
+      ]
+    ],
+    "batch": "urgencia",
+    "kind": "Calculadora",
+    "config": null,
+    "areaId": "urgencia",
+    "clinicalReview": "pending",
+    "sourceReview": "pending",
+    "sourceFile": "app/content/ferramentas/urgencia.php",
+    "arithmeticTest": {
+      "status": "passed",
+      "testedAt": "2026-09-25",
+      "total": 4,
+      "passed": 4,
+      "failures": []
+    },
+    "independentArithmeticTest": {
+      "status": "not-tested",
+      "testedAt": null,
+      "total": 0,
+      "passed": 0,
+      "cases": []
+    }
+  },
+  "review": {
+    "id": "dose-maxima-anestesico-local",
+    "status": "restricted",
+    "reason": "O teto único por fármaco do ZIP não distingue técnica, via, população ou mistura. A bula de ropivacaína apresenta doses específicas por procedimento. Não publicar o valor como máximo seguro universal; suspender execução até revisão por anestesiologia/farmácia.",
+    "sourceUrl": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=23d2d448-a744-4877-9f2d-7e57c198da89",
+    "sourceTitle": "DailyMed — NAROPIN (ropivacaine) prescribing information",
+    "sourceDate": "2024-03",
+    "publisherRegion": "Estados Unidos / bula",
+    "checkedAt": "2026-09-25",
+    "clinicalValidation": "not-performed",
+    "suppressLegacyFormula": true,
+    "formulaOverride": "A dose de anestésico local depende de fármaco, concentração, via, técnica, paciente e exposições combinadas. Os tetos fixos do importador aguardam revisão."
+  },
+  "sourceFile": {
+    "path": "app/content/ferramentas/urgencia.php",
+    "sha256": "b24f3a77383430c3f3463168e78e88341034b3108bd712f3613ae32672dc281c",
+    "bytes": 121059
+  },
+  "clinicalValidation": "not-performed"
+}
