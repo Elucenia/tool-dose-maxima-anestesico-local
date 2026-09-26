@@ -1,7 +1,7 @@
 {
   "name": "@elucenia/tool-dose-maxima-anestesico-local",
   "version": "0.1.0",
-  "description": "Dose máxima de anestésico local · Elucenia: reprodução técnica de fórmula ou escore clínico, sem dependências, para navegador e Node.js.",
+  "description": "Dose máxima de anestésico local · ELUCENIA: reprodução técnica de fórmula ou escore clínico, sem dependências, para navegador e Node.js.",
   "keywords": [
     "elucenia",
     "medical-calculator",
