@@ -1,0 +1,880 @@
+{
+  "receipt": {
+    "file": "reports/review-20261005-completion/deploy-lock/r5-all-calculators-http-results.json",
+    "bytes": 7105457,
+    "sha256": "be450b3731f8b30a13e0b36bf1f2f579bce00de325c5622bc3e526235c1c79f7"
+  },
+  "build": {
+    "id": "RYDdJbZxqrM8sgoyKEQc-",
+    "standaloneServer": {
+      "file": "reports/review-20261005-completion/deploy-lock/r5-isolated-runtime/.next/standalone/server.js",
+      "sha256": "631d43264038e7aa367b5405041eb3706d73fd3366925a7ef17a07119cfa166e",
+      "bytes": 10457
+    },
+    "catalogPin": {
+      "file": "deliveries/elucenia-next-hostinger-r5/.next/server/pages/en/tools.json",
+      "sha256": "33917dfdae9bea59cae22bfca34eaef2a21046a832af98c1a8d2718075de63ec",
+      "bytes": 103793
+    }
+  },
+  "scope": {
+    "syntheticDataOnly": true,
+    "applicationModuleImports": 0,
+    "browserInteractions": 0,
+    "newIndependentOracles": 0,
+    "nativeSourceReferenceCases": 882,
+    "additionalDecimalCases": 4,
+    "clinicalApproval": false,
+    "professionalLanguageApproval": false,
+    "populationValidation": false,
+    "hostingerDeploymentVerified": false,
+    "actualHTTPExecution": true,
+    "standaloneNodeServer": true,
+    "nodeVersion": "v22.18.0",
+    "noNewClinicalOrProfessionalApproval": true,
+    "pubmedResourceIsNotCalculatorAndNotIncludedIn222": true,
+    "description": "All 882 existing reference cases across the 218 native calculators plus four existing Decimal50 examples, executed via HTTP against the final local r5 standalone build. Raw precise source-audit comparisons are transport regressions, not independent clinical or full-method validation."
+  },
+  "tool": {
+    "id": "dose-maxima-anestesico-local",
+    "title": "Anestésico local: limite do protocolo",
+    "methodVersion": "Conversão de limite documentado no protocolo; sem máximo universal",
+    "implementationVersion": "dose-maxima-anestesico-local@native-2026-10-04+660beb78d47f",
+    "sources": [
+      [
+        "DailyMed · lidocaína HCl · limites específicos da formulação e população",
+        "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=a7529e5b-47b1-4148-98dd-65aecc33a8c3"
+      ],
+      [
+        "Rosenberg PH, Veering BT, Urmey WF. Maximum recommended doses of local anesthetics: a multifactorial concept. Reg Anesth Pain Med, 2004.",
+        "https://doi.org/10.1016/j.rapm.2004.08.003"
+      ],
+      [
+        "Neal JM et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity: executive summary 2017. Reg Anesth Pain Med, 2018.",
+        "https://doi.org/10.1097/AAP.0000000000000720"
+      ]
+    ],
+    "limits": "Nenhum limite de fármaco é preenchido ou recomendado automaticamente. Não calcula toxicidade individual nem garante segurança; misturas e doses acumuladas exigem avaliação específica.",
+    "sourceEditionEvidence": [
+      {
+        "citation": "DailyMed · lidocaína HCl · limites específicos da formulação e população",
+        "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=a7529e5b-47b1-4148-98dd-65aecc33a8c3",
+        "class": "existing-source-record-transcribed",
+        "declaredCitationPreserved": true,
+        "sourceIdentityRecheckedInThisNormalization": false,
+        "publicationEditionConfirmationInThisNormalization": "not-performed",
+        "fullTextRetrievalInThisNormalization": false,
+        "formulaConformance": "not-assessed"
+      },
+      {
+        "citation": "Rosenberg PH, Veering BT, Urmey WF. Maximum recommended doses of local anesthetics: a multifactorial concept. Reg Anesth Pain Med, 2004.",
+        "url": "https://doi.org/10.1016/j.rapm.2004.08.003",
+        "class": "existing-source-record-transcribed",
+        "declaredCitationPreserved": true,
+        "sourceIdentityRecheckedInThisNormalization": false,
+        "publicationEditionConfirmationInThisNormalization": "not-performed",
+        "fullTextRetrievalInThisNormalization": false,
+        "formulaConformance": "not-assessed"
+      },
+      {
+        "citation": "Neal JM et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity: executive summary 2017. Reg Anesth Pain Med, 2018.",
+        "url": "https://doi.org/10.1097/AAP.0000000000000720",
+        "class": "existing-source-record-transcribed",
+        "declaredCitationPreserved": true,
+        "sourceIdentityRecheckedInThisNormalization": false,
+        "publicationEditionConfirmationInThisNormalization": "not-performed",
+        "fullTextRetrievalInThisNormalization": false,
+        "formulaConformance": "not-assessed"
+      }
+    ],
+    "calculator": {
+      "file": "deliveries/elucenia-next-hostinger-r5/private/tool-code/dose-maxima-anestesico-local/calculator.js",
+      "sha256": "660beb78d47ff28fdd638b75861417aed61559ffef6cb3c25cc60d789aec9607",
+      "bytes": 517
+    },
+    "cases": 3,
+    "clinicalApproval": false,
+    "professionalLanguageApproval": false,
+    "replayed": 3,
+    "passed": 3,
+    "failed": 0,
+    "status": "passed"
+  },
+  "results": [
+    {
+      "id": "dose-maxima-anestesico-local",
+      "kind": "native-source-reference",
+      "index": 0,
+      "name": "Vetor sintético principal de referência",
+      "originalInput": {
+        "droga": "lido",
+        "peso": 70,
+        "limite": 4.5,
+        "teto": 300,
+        "conc": 1,
+        "contexto": "1"
+      },
+      "input": {
+        "droga": "lido",
+        "peso": 70,
+        "limite": 4.5,
+        "teto": 300,
+        "conc": 1,
+        "contexto": "1"
+      },
+      "amendments": [],
+      "expected": {
+        "raw": {
+          "dose": 300,
+          "vol": 30,
+          "weightLimit": 315,
+          "cap": 300
+        },
+        "main": "300,00"
+      },
+      "recordedResult": {
+        "main": [
+          "300,00",
+          "mg"
+        ],
+        "label": "Limite do protocolo informado",
+        "raw": {
+          "dose": 300,
+          "vol": 30,
+          "weightLimit": 315,
+          "cap": 300
+        }
+      },
+      "provenance": {
+        "bank": {
+          "file": "reports/review-20261003/source-cases-audit.json",
+          "sha256": "da6d27d65bcaed56528da83bd0ffaa3d407fc467ea7f9cb67ec40a1a78c6febf",
+          "bytes": 885399
+        },
+        "canonical": {
+          "file": "deliveries/elucenia-next-hostinger-r5/private/canonical-medical-tools.json",
+          "sha256": "988c58b5409ecc0df7e05193d88c7df930af9ce187b0688534a31f6d627ee4ad",
+          "bytes": 29045565
+        },
+        "scope": "Existing recorded source expectations and precise source-audit transport baseline; no newly derived independent oracle"
+      },
+      "request": {
+        "method": "POST",
+        "url": "http://127.0.0.1:3062/api/tools/dose-maxima-anestesico-local/calculate",
+        "origin": "http://127.0.0.1:3062",
+        "payload": {
+          "input": {
+            "droga": "lido",
+            "peso": 70,
+            "limite": 4.5,
+            "teto": 300,
+            "conc": 1,
+            "contexto": "1"
+          }
+        }
+      },
+      "attempts": [
+        {
+          "url": "http://127.0.0.1:3062/api/tools/dose-maxima-anestesico-local/calculate",
+          "startedAt": "2026-10-05T15:13:38.748Z",
+          "status": 200,
+          "headers": {
+            "contentType": "application/json; charset=utf-8",
+            "retryAfter": null,
+            "cacheControl": "no-store",
+            "nosniff": "nosniff"
+          },
+          "body": {
+            "result": {
+              "id": "dose-maxima-anestesico-local",
+              "main": [
+                "300,00",
+                "mg"
+              ],
+              "label": "Limite do protocolo informado",
+              "raw": {
+                "dose": 300,
+                "vol": 30,
+                "weightLimit": 315,
+                "cap": 300
+              },
+              "methodVersion": "Conversão de limite documentado no protocolo; sem máximo universal",
+              "clinicalValidation": "not-performed"
+            }
+          },
+          "responseSha256": "d4842919203f5479b40510bfadff38356decb11a07fcf5b46181eb5bb0863d5d",
+          "bytes": 291,
+          "elapsedMs": 3.6107999999949243
+        }
+      ],
+      "observed": {
+        "url": "http://127.0.0.1:3062/api/tools/dose-maxima-anestesico-local/calculate",
+        "startedAt": "2026-10-05T15:13:38.748Z",
+        "status": 200,
+        "headers": {
+          "contentType": "application/json; charset=utf-8",
+          "retryAfter": null,
+          "cacheControl": "no-store",
+          "nosniff": "nosniff"
+        },
+        "body": {
+          "result": {
+            "id": "dose-maxima-anestesico-local",
+            "main": [
+              "300,00",
+              "mg"
+            ],
+            "label": "Limite do protocolo informado",
+            "raw": {
+              "dose": 300,
+              "vol": 30,
+              "weightLimit": 315,
+              "cap": 300
+            },
+            "methodVersion": "Conversão de limite documentado no protocolo; sem máximo universal",
+            "clinicalValidation": "not-performed"
+          }
+        },
+        "responseSha256": "d4842919203f5479b40510bfadff38356decb11a07fcf5b46181eb5bb0863d5d",
+        "bytes": 291,
+        "elapsedMs": 3.6107999999949243
+      },
+      "evaluation": {
+        "checks": [
+          {
+            "at": "status",
+            "expected": 200,
+            "obtained": 200,
+            "passed": true
+          },
+          {
+            "at": "result-object",
+            "expected": true,
+            "obtained": true,
+            "passed": true
+          },
+          {
+            "at": "result.main",
+            "expected": "300,00",
+            "obtained": "300,00",
+            "scope": "Recorded source reference",
+            "passed": true
+          },
+          {
+            "at": "result.raw.dose",
+            "expected": 300,
+            "obtained": 300,
+            "tolerance": 1e-8,
+            "difference": 0,
+            "scope": "Recorded rounded source reference",
+            "passed": true
+          },
+          {
+            "at": "result.raw.vol",
+            "expected": 30,
+            "obtained": 30,
+            "tolerance": 1e-8,
+            "difference": 0,
+            "scope": "Recorded rounded source reference",
+            "passed": true
+          },
+          {
+            "at": "result.raw.weightLimit",
+            "expected": 315,
+            "obtained": 315,
+            "tolerance": 1e-8,
+            "difference": 0,
+            "scope": "Recorded rounded source reference",
+            "passed": true
+          },
+          {
+            "at": "result.raw.cap",
+            "expected": 300,
+            "obtained": 300,
+            "tolerance": 1e-8,
+            "difference": 0,
+            "scope": "Recorded rounded source reference",
+            "passed": true
+          },
+          {
+            "at": "regression.result.raw.dose",
+            "expected": 300,
+            "obtained": 300,
+            "tolerance": 3e-10,
+            "difference": 0,
+            "scope": "Existing precise source-audit transport regression, not independent formula validation",
+            "passed": true
+          },
+          {
+            "at": "regression.result.raw.vol",
+            "expected": 30,
+            "obtained": 30,
+            "tolerance": 1e-10,
+            "difference": 0,
+            "scope": "Existing precise source-audit transport regression, not independent formula validation",
+            "passed": true
+          },
+          {
+            "at": "regression.result.raw.weightLimit",
+            "expected": 315,
+            "obtained": 315,
+            "tolerance": 3.15e-10,
+            "difference": 0,
+            "scope": "Existing precise source-audit transport regression, not independent formula validation",
+            "passed": true
+          },
+          {
+            "at": "regression.result.raw.cap",
+            "expected": 300,
+            "obtained": 300,
+            "tolerance": 3e-10,
+            "difference": 0,
+            "scope": "Existing precise source-audit transport regression, not independent formula validation",
+            "passed": true
+          },
+          {
+            "at": "regression.result.main.length",
+            "expected": 2,
+            "obtained": 2,
+            "scope": "Existing source-audit public representation regression",
+            "passed": true
+          },
+          {
+            "at": "regression.result.main[0]",
+            "expected": "300,00",
+            "obtained": "300,00",
+            "scope": "Existing source-audit public representation regression",
+            "passed": true
+          },
+          {
+            "at": "regression.result.main[1]",
+            "expected": "mg",
+            "obtained": "mg",
+            "scope": "Existing source-audit public representation regression",
+            "passed": true
+          }
+        ],
+        "notCompared": []
+      },
+      "status": "passed",
+      "error": null
+    },
+    {
+      "id": "dose-maxima-anestesico-local",
+      "kind": "native-source-reference",
+      "index": 1,
+      "name": "Limite por peso inferior ao teto",
+      "originalInput": {
+        "droga": "lido",
+        "peso": 40,
+        "limite": 4.5,
+        "teto": 300,
+        "conc": 2,
+        "contexto": "1"
+      },
+      "input": {
+        "droga": "lido",
+        "peso": 40,
+        "limite": 4.5,
+        "teto": 300,
+        "conc": 2,
+        "contexto": "1"
+      },
+      "amendments": [],
+      "expected": {
+        "raw": {
+          "dose": 180,
+          "vol": 9,
+          "weightLimit": 180,
+          "cap": 300
+        },
+        "main": "180,00"
+      },
+      "recordedResult": {
+        "main": [
+          "180,00",
+          "mg"
+        ],
+        "label": "Limite do protocolo informado",
+        "raw": {
+          "dose": 180,
+          "vol": 9,
+          "weightLimit": 180,
+          "cap": 300
+        }
+      },
+      "provenance": {
+        "bank": {
+          "file": "reports/review-20261003/source-cases-audit.json",
+          "sha256": "da6d27d65bcaed56528da83bd0ffaa3d407fc467ea7f9cb67ec40a1a78c6febf",
+          "bytes": 885399
+        },
+        "canonical": {
+          "file": "deliveries/elucenia-next-hostinger-r5/private/canonical-medical-tools.json",
+          "sha256": "988c58b5409ecc0df7e05193d88c7df930af9ce187b0688534a31f6d627ee4ad",
+          "bytes": 29045565
+        },
+        "scope": "Existing recorded source expectations and precise source-audit transport baseline; no newly derived independent oracle"
+      },
+      "request": {
+        "method": "POST",
+        "url": "http://127.0.0.1:3062/api/tools/dose-maxima-anestesico-local/calculate",
+        "origin": "http://127.0.0.1:3062",
+        "payload": {
+          "input": {
+            "droga": "lido",
+            "peso": 40,
+            "limite": 4.5,
+            "teto": 300,
+            "conc": 2,
+            "contexto": "1"
+          }
+        }
+      },
+      "attempts": [
+        {
+          "url": "http://127.0.0.1:3062/api/tools/dose-maxima-anestesico-local/calculate",
+          "startedAt": "2026-10-05T15:13:39.062Z",
+          "status": 200,
+          "headers": {
+            "contentType": "application/json; charset=utf-8",
+            "retryAfter": null,
+            "cacheControl": "no-store",
+            "nosniff": "nosniff"
+          },
+          "body": {
+            "result": {
+              "id": "dose-maxima-anestesico-local",
+              "main": [
+                "180,00",
+                "mg"
+              ],
+              "label": "Limite do protocolo informado",
+              "raw": {
+                "dose": 180,
+                "vol": 9,
+                "weightLimit": 180,
+                "cap": 300
+              },
+              "methodVersion": "Conversão de limite documentado no protocolo; sem máximo universal",
+              "clinicalValidation": "not-performed"
+            }
+          },
+          "responseSha256": "47dd9440d3c26a732be7c654e71f3b8313aa0e17ea7f6111493a7299ce22cf6c",
+          "bytes": 290,
+          "elapsedMs": 2.654099999999744
+        }
+      ],
+      "observed": {
+        "url": "http://127.0.0.1:3062/api/tools/dose-maxima-anestesico-local/calculate",
+        "startedAt": "2026-10-05T15:13:39.062Z",
+        "status": 200,
+        "headers": {
+          "contentType": "application/json; charset=utf-8",
+          "retryAfter": null,
+          "cacheControl": "no-store",
+          "nosniff": "nosniff"
+        },
+        "body": {
+          "result": {
+            "id": "dose-maxima-anestesico-local",
+            "main": [
+              "180,00",
+              "mg"
+            ],
+            "label": "Limite do protocolo informado",
+            "raw": {
+              "dose": 180,
+              "vol": 9,
+              "weightLimit": 180,
+              "cap": 300
+            },
+            "methodVersion": "Conversão de limite documentado no protocolo; sem máximo universal",
+            "clinicalValidation": "not-performed"
+          }
+        },
+        "responseSha256": "47dd9440d3c26a732be7c654e71f3b8313aa0e17ea7f6111493a7299ce22cf6c",
+        "bytes": 290,
+        "elapsedMs": 2.654099999999744
+      },
+      "evaluation": {
+        "checks": [
+          {
+            "at": "status",
+            "expected": 200,
+            "obtained": 200,
+            "passed": true
+          },
+          {
+            "at": "result-object",
+            "expected": true,
+            "obtained": true,
+            "passed": true
+          },
+          {
+            "at": "result.main",
+            "expected": "180,00",
+            "obtained": "180,00",
+            "scope": "Recorded source reference",
+            "passed": true
+          },
+          {
+            "at": "result.raw.dose",
+            "expected": 180,
+            "obtained": 180,
+            "tolerance": 1e-8,
+            "difference": 0,
+            "scope": "Recorded rounded source reference",
+            "passed": true
+          },
+          {
+            "at": "result.raw.vol",
+            "expected": 9,
+            "obtained": 9,
+            "tolerance": 1e-8,
+            "difference": 0,
+            "scope": "Recorded rounded source reference",
+            "passed": true
+          },
+          {
+            "at": "result.raw.weightLimit",
+            "expected": 180,
+            "obtained": 180,
+            "tolerance": 1e-8,
+            "difference": 0,
+            "scope": "Recorded rounded source reference",
+            "passed": true
+          },
+          {
+            "at": "result.raw.cap",
+            "expected": 300,
+            "obtained": 300,
+            "tolerance": 1e-8,
+            "difference": 0,
+            "scope": "Recorded rounded source reference",
+            "passed": true
+          },
+          {
+            "at": "regression.result.raw.dose",
+            "expected": 180,
+            "obtained": 180,
+            "tolerance": 1.8e-10,
+            "difference": 0,
+            "scope": "Existing precise source-audit transport regression, not independent formula validation",
+            "passed": true
+          },
+          {
+            "at": "regression.result.raw.vol",
+            "expected": 9,
+            "obtained": 9,
+            "tolerance": 1e-10,
+            "difference": 0,
+            "scope": "Existing precise source-audit transport regression, not independent formula validation",
+            "passed": true
+          },
+          {
+            "at": "regression.result.raw.weightLimit",
+            "expected": 180,
+            "obtained": 180,
+            "tolerance": 1.8e-10,
+            "difference": 0,
+            "scope": "Existing precise source-audit transport regression, not independent formula validation",
+            "passed": true
+          },
+          {
+            "at": "regression.result.raw.cap",
+            "expected": 300,
+            "obtained": 300,
+            "tolerance": 3e-10,
+            "difference": 0,
+            "scope": "Existing precise source-audit transport regression, not independent formula validation",
+            "passed": true
+          },
+          {
+            "at": "regression.result.main.length",
+            "expected": 2,
+            "obtained": 2,
+            "scope": "Existing source-audit public representation regression",
+            "passed": true
+          },
+          {
+            "at": "regression.result.main[0]",
+            "expected": "180,00",
+            "obtained": "180,00",
+            "scope": "Existing source-audit public representation regression",
+            "passed": true
+          },
+          {
+            "at": "regression.result.main[1]",
+            "expected": "mg",
+            "obtained": "mg",
+            "scope": "Existing source-audit public representation regression",
+            "passed": true
+          }
+        ],
+        "notCompared": []
+      },
+      "status": "passed",
+      "error": null
+    },
+    {
+      "id": "dose-maxima-anestesico-local",
+      "kind": "native-source-reference",
+      "index": 2,
+      "name": "Não usa máximo universal do fármaco",
+      "originalInput": {
+        "droga": "ropi",
+        "peso": 50,
+        "limite": 2,
+        "teto": 200,
+        "conc": 0.2,
+        "contexto": "1"
+      },
+      "input": {
+        "droga": "ropi",
+        "peso": 50,
+        "limite": 2,
+        "teto": 200,
+        "conc": 0.2,
+        "contexto": "1"
+      },
+      "amendments": [],
+      "expected": {
+        "raw": {
+          "dose": 100,
+          "vol": 50,
+          "weightLimit": 100,
+          "cap": 200
+        },
+        "main": "100,00"
+      },
+      "recordedResult": {
+        "main": [
+          "100,00",
+          "mg"
+        ],
+        "label": "Limite do protocolo informado",
+        "raw": {
+          "dose": 100,
+          "vol": 50,
+          "weightLimit": 100,
+          "cap": 200
+        }
+      },
+      "provenance": {
+        "bank": {
+          "file": "reports/review-20261003/source-cases-audit.json",
+          "sha256": "da6d27d65bcaed56528da83bd0ffaa3d407fc467ea7f9cb67ec40a1a78c6febf",
+          "bytes": 885399
+        },
+        "canonical": {
+          "file": "deliveries/elucenia-next-hostinger-r5/private/canonical-medical-tools.json",
+          "sha256": "988c58b5409ecc0df7e05193d88c7df930af9ce187b0688534a31f6d627ee4ad",
+          "bytes": 29045565
+        },
+        "scope": "Existing recorded source expectations and precise source-audit transport baseline; no newly derived independent oracle"
+      },
+      "request": {
+        "method": "POST",
+        "url": "http://127.0.0.1:3062/api/tools/dose-maxima-anestesico-local/calculate",
+        "origin": "http://127.0.0.1:3062",
+        "payload": {
+          "input": {
+            "droga": "ropi",
+            "peso": 50,
+            "limite": 2,
+            "teto": 200,
+            "conc": 0.2,
+            "contexto": "1"
+          }
+        }
+      },
+      "attempts": [
+        {
+          "url": "http://127.0.0.1:3062/api/tools/dose-maxima-anestesico-local/calculate",
+          "startedAt": "2026-10-05T15:13:39.374Z",
+          "status": 200,
+          "headers": {
+            "contentType": "application/json; charset=utf-8",
+            "retryAfter": null,
+            "cacheControl": "no-store",
+            "nosniff": "nosniff"
+          },
+          "body": {
+            "result": {
+              "id": "dose-maxima-anestesico-local",
+              "main": [
+                "100,00",
+                "mg"
+              ],
+              "label": "Limite do protocolo informado",
+              "raw": {
+                "dose": 100,
+                "vol": 50,
+                "weightLimit": 100,
+                "cap": 200
+              },
+              "methodVersion": "Conversão de limite documentado no protocolo; sem máximo universal",
+              "clinicalValidation": "not-performed"
+            }
+          },
+          "responseSha256": "4841cefa3bbe52e90b2143f9b6e7b83cb591f3238aabafa48c7dfe73bca347af",
+          "bytes": 291,
+          "elapsedMs": 4.033100000000559
+        }
+      ],
+      "observed": {
+        "url": "http://127.0.0.1:3062/api/tools/dose-maxima-anestesico-local/calculate",
+        "startedAt": "2026-10-05T15:13:39.374Z",
+        "status": 200,
+        "headers": {
+          "contentType": "application/json; charset=utf-8",
+          "retryAfter": null,
+          "cacheControl": "no-store",
+          "nosniff": "nosniff"
+        },
+        "body": {
+          "result": {
+            "id": "dose-maxima-anestesico-local",
+            "main": [
+              "100,00",
+              "mg"
+            ],
+            "label": "Limite do protocolo informado",
+            "raw": {
+              "dose": 100,
+              "vol": 50,
+              "weightLimit": 100,
+              "cap": 200
+            },
+            "methodVersion": "Conversão de limite documentado no protocolo; sem máximo universal",
+            "clinicalValidation": "not-performed"
+          }
+        },
+        "responseSha256": "4841cefa3bbe52e90b2143f9b6e7b83cb591f3238aabafa48c7dfe73bca347af",
+        "bytes": 291,
+        "elapsedMs": 4.033100000000559
+      },
+      "evaluation": {
+        "checks": [
+          {
+            "at": "status",
+            "expected": 200,
+            "obtained": 200,
+            "passed": true
+          },
+          {
+            "at": "result-object",
+            "expected": true,
+            "obtained": true,
+            "passed": true
+          },
+          {
+            "at": "result.main",
+            "expected": "100,00",
+            "obtained": "100,00",
+            "scope": "Recorded source reference",
+            "passed": true
+          },
+          {
+            "at": "result.raw.dose",
+            "expected": 100,
+            "obtained": 100,
+            "tolerance": 1e-8,
+            "difference": 0,
+            "scope": "Recorded rounded source reference",
+            "passed": true
+          },
+          {
+            "at": "result.raw.vol",
+            "expected": 50,
+            "obtained": 50,
+            "tolerance": 1e-8,
+            "difference": 0,
+            "scope": "Recorded rounded source reference",
+            "passed": true
+          },
+          {
+            "at": "result.raw.weightLimit",
+            "expected": 100,
+            "obtained": 100,
+            "tolerance": 1e-8,
+            "difference": 0,
+            "scope": "Recorded rounded source reference",
+            "passed": true
+          },
+          {
+            "at": "result.raw.cap",
+            "expected": 200,
+            "obtained": 200,
+            "tolerance": 1e-8,
+            "difference": 0,
+            "scope": "Recorded rounded source reference",
+            "passed": true
+          },
+          {
+            "at": "regression.result.raw.dose",
+            "expected": 100,
+            "obtained": 100,
+            "tolerance": 1e-10,
+            "difference": 0,
+            "scope": "Existing precise source-audit transport regression, not independent formula validation",
+            "passed": true
+          },
+          {
+            "at": "regression.result.raw.vol",
+            "expected": 50,
+            "obtained": 50,
+            "tolerance": 1e-10,
+            "difference": 0,
+            "scope": "Existing precise source-audit transport regression, not independent formula validation",
+            "passed": true
+          },
+          {
+            "at": "regression.result.raw.weightLimit",
+            "expected": 100,
+            "obtained": 100,
+            "tolerance": 1e-10,
+            "difference": 0,
+            "scope": "Existing precise source-audit transport regression, not independent formula validation",
+            "passed": true
+          },
+          {
+            "at": "regression.result.raw.cap",
+            "expected": 200,
+            "obtained": 200,
+            "tolerance": 2e-10,
+            "difference": 0,
+            "scope": "Existing precise source-audit transport regression, not independent formula validation",
+            "passed": true
+          },
+          {
+            "at": "regression.result.main.length",
+            "expected": 2,
+            "obtained": 2,
+            "scope": "Existing source-audit public representation regression",
+            "passed": true
+          },
+          {
+            "at": "regression.result.main[0]",
+            "expected": "100,00",
+            "obtained": "100,00",
+            "scope": "Existing source-audit public representation regression",
+            "passed": true
+          },
+          {
+            "at": "regression.result.main[1]",
+            "expected": "mg",
+            "obtained": "mg",
+            "scope": "Existing source-audit public representation regression",
+            "passed": true
+          }
+        ],
+        "notCompared": []
+      },
+      "status": "passed",
+      "error": null
+    }
+  ],
+  "endBindings": true
+}

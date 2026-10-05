@@ -1,0 +1,57 @@
+[
+  {
+    "id": "dose-maxima-anestesico-local",
+    "title": "Dose máxima de anestésico local",
+    "fields": [
+      [
+        "droga",
+        "Anestésico local",
+        "sel",
+        {
+          "opts": {
+            "lido": "Lidocaína sem vasoconstritor",
+            "lidoepi": "Lidocaína com epinefrina",
+            "bupi": "Bupivacaína sem vasoconstritor",
+            "bupiepi": "Bupivacaína com epinefrina",
+            "ropi": "Ropivacaína"
+          }
+        }
+      ],
+      [
+        "peso",
+        "Peso",
+        "num",
+        {
+          "min": 3,
+          "max": 200,
+          "step": 0.1,
+          "unit": "kg",
+          "ph": "70"
+        }
+      ],
+      [
+        "conc",
+        "Concentração da solução",
+        "num",
+        {
+          "min": 0.1,
+          "max": 5,
+          "step": 0.05,
+          "unit": "%",
+          "ph": "1",
+          "opt": true
+        }
+      ]
+    ],
+    "sources": [
+      [
+        "Rosenberg PH, Veering BT, Urmey WF. Maximum recommended doses of local anesthetics: a multifactorial concept. Reg Anesth Pain Med, 2004.",
+        "https://doi.org/10.1016/j.rapm.2004.08.003"
+      ],
+      [
+        "Neal JM et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity: executive summary 2017. Reg Anesth Pain Med, 2018.",
+        "https://doi.org/10.1097/AAP.0000000000000720"
+      ]
+    ]
+  }
+]

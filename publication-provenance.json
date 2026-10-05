@@ -1,0 +1,270 @@
+{
+  "schema": "elucenia-current-per-tool-local-publication-candidate",
+  "id": "dose-maxima-anestesico-local",
+  "repository": "Elucenia/tool-dose-maxima-anestesico-local",
+  "parentCommitSha": "54fdcdcd31184dbd1ae3f82c93994ea0e9908bfb",
+  "baseTreeSha": "df62cea92e4155468b01abaf549c68f5222d9592",
+  "protectedFiles": {
+    "LICENSE": {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "size": 11358,
+      "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/d645695673349e3947e8e5ae42332d0ac3164cd7"
+    },
+    "NOTICE": {
+      "path": "NOTICE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "781cc07145f2683ace3117aae376254aedb60851",
+      "size": 1670,
+      "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/781cc07145f2683ace3117aae376254aedb60851"
+    },
+    "AUTHORSHIP.md": {
+      "path": "AUTHORSHIP.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eb988d634148c84533aabaa77e98c4067775d5cc",
+      "size": 3351,
+      "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/eb988d634148c84533aabaa77e98c4067775d5cc"
+    },
+    "CITATION.cff": {
+      "path": "CITATION.cff",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8831eea8e6a7c7727fa3b6aee0977405280b49e1",
+      "size": 955,
+      "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/8831eea8e6a7c7727fa3b6aee0977405280b49e1"
+    },
+    "SECURITY.md": {
+      "path": "SECURITY.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44eafb996937916cbe53e24fa9c5208fe03d5767",
+      "size": 894,
+      "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/44eafb996937916cbe53e24fa9c5208fe03d5767"
+    },
+    "CONTRIBUTING.md": {
+      "path": "CONTRIBUTING.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2ef98a473f755a5a69910415c6a3d918ab11feb",
+      "size": 1479,
+      "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/a2ef98a473f755a5a69910415c6a3d918ab11feb"
+    },
+    ".github/workflows/ci.yml": {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d3f2f34aa2e948d30695d82d64361467d9e6485",
+      "size": 279,
+      "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/7d3f2f34aa2e948d30695d82d64361467d9e6485"
+    },
+    ".gitattributes": {
+      "path": ".gitattributes",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6313b56c57848efce05faa7aa7e901ccfc2886ea",
+      "size": 19,
+      "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/6313b56c57848efce05faa7aa7e901ccfc2886ea"
+    },
+    ".gitignore": {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e375bd25cf1a574310ac4c7af0299884556e81e1",
+      "size": 42,
+      "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/e375bd25cf1a574310ac4c7af0299884556e81e1"
+    }
+  },
+  "oldCandidate": {
+    "manifest": {
+      "file": "reports/review-20261003/github-publication-candidate-final36-v4.json",
+      "bytes": 6823260,
+      "sha256": "a3c528b12d7b5416fa0e62dda9e5106864bae7ff86710fa765934b5a3069e16c"
+    },
+    "rowId": "dose-maxima-anestesico-local",
+    "publicationProvenance": {
+      "file": "reports/review-20261003/github-publication-candidates-final36-v4/dose-maxima-anestesico-local/publication-provenance.json",
+      "bytes": 5423,
+      "sha256": "256d91c03c50a8ea03fbc51c45acb7a4c102b2b53f986b5d1e4ad93b66bfcd97"
+    },
+    "integrationProvenance": {
+      "file": "reports/review-20261003/github-publication-candidates-final36-v4/dose-maxima-anestesico-local/provenance.json",
+      "bytes": 46279,
+      "sha256": "e3e99c72ea0e334235f110296569a1726a272e033e1a8c4c7a23ab1d363966e9"
+    }
+  },
+  "currentSource": {
+    "file": "apps/website/private/tool-code/dose-maxima-anestesico-local/calculator.js",
+    "bytes": 517,
+    "sha256": "660beb78d47ff28fdd638b75861417aed61559ffef6cb3c25cc60d789aec9607"
+  },
+  "sourceToolSha256": "a59a4e3902c4831997762f307a5afe96cf256508426b89aaf9bdcd5632bf8e02",
+  "methodVersion": "Conversão de limite documentado no protocolo; sem máximo universal",
+  "implementationVersion": "dose-maxima-anestesico-local@native-2026-10-04+660beb78d47f",
+  "browserBundleSha256": "b285b2a12bed81ca9559dc7375b54d747aefbe1344bd72db44563f78f9f11547",
+  "graph": {
+    "entry": "tool-code/dose-maxima-anestesico-local/calculator.js",
+    "modules": [
+      {
+        "file": "tool-code/dose-maxima-anestesico-local/calculator.js",
+        "bytes": 517,
+        "sha256": "660beb78d47ff28fdd638b75861417aed61559ffef6cb3c25cc60d789aec9607"
+      },
+      {
+        "file": "restored-methods.cjs",
+        "bytes": 4903,
+        "sha256": "2005b72a3c0fec6acf8f3f4449c3ef0630952bb50696eb38eb56fe694762b082"
+      },
+      {
+        "file": "restoration-original-tools.json",
+        "bytes": 1452,
+        "sha256": "c755cbfc1f129933bdfc5e3e46e36d150d0cc25c5063364f0c4589c7a1131237"
+      }
+    ],
+    "transforms": [
+      {
+        "file": "restored-methods.cjs",
+        "sourceSha256": "630dccade18742e4bc364b32f4ef4d6bc75aeceb262face8ddae806be7962c23",
+        "kind": "Deterministic AST selection of one existing define call plus unchanged shared arithmetic/schema helpers",
+        "selectedId": "dose-maxima-anestesico-local",
+        "otherMethodDefinitionsIncluded": 0
+      },
+      {
+        "file": "restoration-original-tools.json",
+        "sourceSha256": "ccee00665e024104d254acf77a43609acb02d593e016ee8c6b7cebf3769da389",
+        "kind": "One original field/source contract only; no other tools, reference banks or original results",
+        "selectedId": "dose-maxima-anestesico-local",
+        "keys": [
+          "id",
+          "title",
+          "fields",
+          "sources"
+        ]
+      }
+    ]
+  },
+  "currentActualHttpEvidence": {
+    "file": "reports/review-20261005-completion/deploy-lock/r5-all-calculators-http-results.json",
+    "bytes": 7105457,
+    "sha256": "be450b3731f8b30a13e0b36bf1f2f579bce00de325c5622bc3e526235c1c79f7"
+  },
+  "tests": {
+    "cases": 3,
+    "sourceNodeParityPassed": true,
+    "browserVmParityPassed": true,
+    "independentOracleDerived": false,
+    "actualBrowserDOMVerified": false
+  },
+  "rights": {
+    "historicalPayloadLicenseDeclaration": "Apache-2.0",
+    "currentIntegrationPackageLicenseDeclaration": "MIT",
+    "currentLegalFiles": [
+      {
+        "file": "apps/command-center/private/tool-code/dose-maxima-anestesico-local/LICENSE",
+        "bytes": 1229,
+        "sha256": "51c010d285894558695812b9883d9c9ae7c9c89526f43597917e778965e65d93"
+      },
+      {
+        "file": "apps/command-center/private/tool-code/dose-maxima-anestesico-local/NOTICE.md",
+        "bytes": 1183,
+        "sha256": "b7d5eaa1074d1673caf885ac49b38e9b54b2c6086b45072eacf7b3fe139d8a6d"
+      }
+    ],
+    "protectedFilesPreservedFromOldPayload": [],
+    "protectedRemoteAttributionReferences": {
+      "LICENSE": {
+        "path": "LICENSE",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+        "size": 11358,
+        "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/d645695673349e3947e8e5ae42332d0ac3164cd7"
+      },
+      "NOTICE": {
+        "path": "NOTICE",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "781cc07145f2683ace3117aae376254aedb60851",
+        "size": 1670,
+        "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/781cc07145f2683ace3117aae376254aedb60851"
+      },
+      "AUTHORSHIP.md": {
+        "path": "AUTHORSHIP.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "eb988d634148c84533aabaa77e98c4067775d5cc",
+        "size": 3351,
+        "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/eb988d634148c84533aabaa77e98c4067775d5cc"
+      },
+      "CITATION.cff": {
+        "path": "CITATION.cff",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "8831eea8e6a7c7727fa3b6aee0977405280b49e1",
+        "size": 955,
+        "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/8831eea8e6a7c7727fa3b6aee0977405280b49e1"
+      },
+      "SECURITY.md": {
+        "path": "SECURITY.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "44eafb996937916cbe53e24fa9c5208fe03d5767",
+        "size": 894,
+        "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/44eafb996937916cbe53e24fa9c5208fe03d5767"
+      },
+      "CONTRIBUTING.md": {
+        "path": "CONTRIBUTING.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "a2ef98a473f755a5a69910415c6a3d918ab11feb",
+        "size": 1479,
+        "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/a2ef98a473f755a5a69910415c6a3d918ab11feb"
+      },
+      ".github/workflows/ci.yml": {
+        "path": ".github/workflows/ci.yml",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "7d3f2f34aa2e948d30695d82d64361467d9e6485",
+        "size": 279,
+        "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/7d3f2f34aa2e948d30695d82d64361467d9e6485"
+      },
+      ".gitattributes": {
+        "path": ".gitattributes",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "6313b56c57848efce05faa7aa7e901ccfc2886ea",
+        "size": 19,
+        "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/6313b56c57848efce05faa7aa7e901ccfc2886ea"
+      },
+      ".gitignore": {
+        "path": ".gitignore",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "e375bd25cf1a574310ac4c7af0299884556e81e1",
+        "size": 42,
+        "url": "https://api.github.com/repos/Elucenia/tool-dose-maxima-anestesico-local/git/blobs/e375bd25cf1a574310ac4c7af0299884556e81e1"
+      }
+    },
+    "sourceSpecificEvidence": {
+      "sourceSpecificStatus": "not-approved-by-this-consolidation",
+      "sourceSpecificEvidence": null,
+      "wholeInstrumentApproval": false,
+      "oldCandidateInstrumentRightsApproval": "not-performed"
+    },
+    "scope": "Historical Apache declaration and current MIT integration notices retained with exact sources; no relicensing or instrument approval inferred",
+    "reviewRequired": true,
+    "divergences": [
+      "Historical payload and current package declare different license labels; scope/authorship mapping must be reviewed before distribution"
+    ],
+    "wholeInstrumentApproval": false
+  },
+  "appWrites": false,
+  "externalMutations": false,
+  "publicationPerformed": false,
+  "externalPublicationReady": false,
+  "clinicalApproval": false,
+  "professionalLanguageApproval": false
+}

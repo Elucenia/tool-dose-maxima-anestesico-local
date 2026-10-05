@@ -1,10 +1,11 @@
 {
   "tool": {
     "id": "dose-maxima-anestesico-local",
-    "title": "Dose máxima de anestésico local",
-    "short": "Lidocaína, bupivacaína e ropivacaína por peso",
-    "desc": "Calcule a dose máxima de lidocaína (com e sem vasoconstritor), bupivacaína e ropivacaína pelo peso, com teto absoluto e volume pela concentração.",
-    "lead": "Estima a dose máxima recomendada de anestésico local pelo peso, respeitando o teto absoluto, e converte em volume na concentração usada, para prevenir intoxicação sistêmica.",
+    "title": "Anestésico local: limite do protocolo",
+    "short": "Converte um limite previamente definido no protocolo em massa e volume",
+    "desc": "Informe o limite em mg/kg, o teto em mg e a concentração definidos no protocolo aplicável. A ferramenta faz a conversão matemática; não seleciona um limite seguro por medicamento.",
+    "lead": "Informe o limite em mg/kg, o teto em mg e a concentração definidos no protocolo aplicável. A ferramenta faz a conversão matemática; não seleciona um limite seguro por medicamento.",
+    "kind": "Calculadora",
     "spec": [
       "anestesiologia",
       "medicina-de-emergencia",
@@ -12,7 +13,6 @@
       "dermatologia",
       "cirurgia-geral"
     ],
-    "tier": 1,
     "fields": [
       [
         "droga",
@@ -35,9 +35,27 @@
         {
           "min": 3,
           "max": 200,
-          "step": 0.1,
-          "unit": "kg",
-          "ph": "70"
+          "unit": "kg"
+        }
+      ],
+      [
+        "limite",
+        "Limite de dose por peso no protocolo",
+        "num",
+        {
+          "min": 0.1,
+          "max": 20,
+          "unit": "mg/kg"
+        }
+      ],
+      [
+        "teto",
+        "Limite absoluto no protocolo",
+        "num",
+        {
+          "min": 1,
+          "max": 2000,
+          "unit": "mg"
         }
       ],
       [
@@ -47,55 +65,27 @@
         {
           "min": 0.1,
           "max": 5,
-          "step": 0.05,
-          "unit": "%",
-          "ph": "1",
-          "opt": true
+          "unit": "%"
+        }
+      ],
+      [
+        "contexto",
+        "Via, técnica, população, formulação e limites na bula/protocolo foram conferidos; ausência de mistura ou outras exposições confirmada?",
+        "sel",
+        {
+          "opts": {
+            "0": "Não",
+            "1": "Sim"
+          }
         }
       ]
     ],
-    "formula": "<p><strong>Dose máxima</strong> = menor valor entre (mg/kg × peso) e o teto absoluto do fármaco.</p><p><strong>Volume máximo</strong> (mL) = dose máxima ÷ (concentração em % × 10), pois 1% = 10 mg/mL.</p>",
-    "table": [
-      [
-        "Anestésico",
-        "mg/kg",
-        "Teto absoluto"
-      ],
-      [
-        "Lidocaína sem vasoconstritor",
-        "4,5",
-        "300 mg"
-      ],
-      [
-        "Lidocaína com epinefrina",
-        "7",
-        "500 mg"
-      ],
-      [
-        "Bupivacaína sem vasoconstritor",
-        "2,5",
-        "175 mg"
-      ],
-      [
-        "Bupivacaína com epinefrina",
-        "3",
-        "225 mg"
-      ],
-      [
-        "Ropivacaína",
-        "3",
-        "200 mg"
-      ]
-    ],
-    "table_note": "Valores de referência habituais para dose única em adultos. Rosenberg (2004) mostra que esses limites não são baseados em evidência robusta e variam com o local de injeção.",
-    "tips": [
-      "A toxicidade depende do local: a absorção é maior em bloqueio intercostal &gt; caudal &gt; peridural &gt; plexo braquial &gt; subcutâneo. Use doses menores em áreas muito vascularizadas.",
-      "Doses de anestésicos locais diferentes são <strong>aditivas</strong>: ao misturar lidocaína e bupivacaína, some as frações da dose máxima de cada um.",
-      "Em obesos, calcule pelo peso magro ou ideal; reduza a dose em idosos, cardiopatas, hepatopatas, nefropatas e gestantes.",
-      "Aspire antes de injetar, injete em alíquotas de 3 a 5 mL e use ultrassom quando possível. Tenha emulsão lipídica a 20% disponível: é o tratamento da intoxicação sistêmica (LAST).",
-      "A infiltração tumescente em cirurgia plástica usa soluções muito diluídas e segue limites próprios, diferentes dos desta tabela."
-    ],
+    "formula": "<p>Limite matemático informado = min(peso × limite mg/kg, teto mg); volume correspondente = limite mg/(concentração % × 10).</p>",
     "sources": [
+      [
+        "DailyMed · lidocaína HCl · limites específicos da formulação e população",
+        "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=a7529e5b-47b1-4148-98dd-65aecc33a8c3"
+      ],
       [
         "Rosenberg PH, Veering BT, Urmey WF. Maximum recommended doses of local anesthetics: a multifactorial concept. Reg Anesth Pain Med, 2004.",
         "https://doi.org/10.1016/j.rapm.2004.08.003"
@@ -107,98 +97,430 @@
     ],
     "cases": [
       [
-        "Lidocaína 1% sem vaso, 70 kg: 315 mg limitado a 300 mg = 30 mL",
+        "Vetor sintético principal de referência",
         {
           "droga": "lido",
           "peso": 70,
-          "conc": 1
+          "limite": 4.5,
+          "teto": 300,
+          "conc": 1,
+          "contexto": "1"
         },
         {
           "raw": {
             "dose": 300,
-            "vol": 30
+            "vol": 30,
+            "weightLimit": 315,
+            "cap": 300
           },
-          "verdict": "teto",
-          "level": "info"
+          "main": "300,00"
         }
       ],
       [
-        "Lidocaína 2% com epinefrina, 50 kg: 350 mg = 17,5 mL",
+        "Limite por peso inferior ao teto",
         {
-          "droga": "lidoepi",
-          "peso": 50,
-          "conc": 2
+          "droga": "lido",
+          "peso": 40,
+          "limite": 4.5,
+          "teto": 300,
+          "conc": 2,
+          "contexto": "1"
         },
         {
           "raw": {
-            "dose": 350,
-            "vol": 17.5
+            "dose": 180,
+            "vol": 9,
+            "weightLimit": 180,
+            "cap": 300
           },
-          "verdict": "peso",
-          "level": "info"
+          "main": "180,00"
         }
       ],
       [
-        "Bupivacaína 0,5% sem vaso, 60 kg: 150 mg = 30 mL",
-        {
-          "droga": "bupi",
-          "peso": 60,
-          "conc": 0.5
-        },
-        {
-          "raw": {
-            "dose": 150,
-            "vol": 30
-          },
-          "level": "info"
-        }
-      ],
-      [
-        "Ropivacaína 0,75%, 80 kg: 240 mg limitado a 200 mg = 26,7 mL",
+        "Não usa máximo universal do fármaco",
         {
           "droga": "ropi",
-          "peso": 80,
-          "conc": 0.75
+          "peso": 50,
+          "limite": 2,
+          "teto": 200,
+          "conc": 0.2,
+          "contexto": "1"
         },
         {
           "raw": {
-            "dose": 200,
-            "vol": 26.667
+            "dose": 100,
+            "vol": 50,
+            "weightLimit": 100,
+            "cap": 200
           },
-          "level": "info"
+          "main": "100,00"
         }
       ]
     ],
-    "kind": "Calculadora",
-    "config": null,
-    "clinicalReview": "pending",
     "arithmeticTest": {
       "status": "passed",
-      "testedAt": "2026-09-25",
-      "total": 4,
-      "passed": 4,
-      "failures": []
+      "testedAt": "2026-10-03",
+      "total": 3,
+      "passed": 3,
+      "failures": [],
+      "evidencePath": "reports/review-20261003/restored-methods-source-rules.json",
+      "scope": "Synthetic source-rule arithmetic checks. Independent clinical validation not performed."
     },
     "independentArithmeticTest": {
-      "status": "not-tested",
-      "testedAt": null,
-      "total": 0,
-      "passed": 0,
-      "cases": []
-    }
-  },
-  "review": {
-    "id": "dose-maxima-anestesico-local",
-    "status": "restricted",
-    "reason": "O teto único por fármaco do ZIP não distingue técnica, via, população ou mistura. A bula de ropivacaína apresenta doses específicas por procedimento. Não publicar o valor como máximo seguro universal; suspender execução até revisão por anestesiologia/farmácia.",
-    "sourceUrl": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=23d2d448-a744-4877-9f2d-7e57c198da89",
-    "sourceTitle": "DailyMed — NAROPIN (ropivacaine) prescribing information",
-    "sourceDate": "2024-03",
-    "publisherRegion": "Estados Unidos / bula",
-    "checkedAt": "2026-09-25",
+      "status": "passed",
+      "testedAt": "2026-10-03",
+      "total": 29,
+      "passed": 29,
+      "evidencePath": "reports/review-20261003/restored-methods-source-rules.json",
+      "scope": "Independent expected values and source-rule boundary checks; not clinical approval.",
+      "sourceRowCount": 29,
+      "uniqueApiInputCount": 24,
+      "inputIdentity": {
+        "definition": "Distinct JSON input objects within each method after recursively sorting object keys; array order, numeric values and JSON value types preserved. Uses stored input/inputs before implicit default completion, numeric coercion or clinical feature interpretation. Identity across different methods is not collapsed. Repeated scenarios are retained and coverage status is unchanged.",
+        "audit": {
+          "file": "reports/review-20261003/independent-source-corpus-input-identity-audit-final25.json",
+          "sha256": "35d65e84c5608a5f572fce6837f0a8c101b2266f5d6eec32a3d60d2bb6b022ca"
+        },
+        "sourceRows": 29,
+        "uniqueApiInputs": 24,
+        "duplicateRows": 5,
+        "duplicates": [
+          {
+            "first": 8,
+            "repeat": 11,
+            "input": {
+              "droga": "lido",
+              "peso": null,
+              "limite": 4.5,
+              "teto": 300,
+              "conc": 1,
+              "contexto": "1"
+            }
+          },
+          {
+            "first": 3,
+            "repeat": 13,
+            "input": {
+              "droga": "lido",
+              "peso": 70,
+              "limite": null,
+              "teto": 300,
+              "conc": 1,
+              "contexto": "1"
+            }
+          },
+          {
+            "first": 3,
+            "repeat": 16,
+            "input": {
+              "droga": "lido",
+              "peso": 70,
+              "limite": null,
+              "teto": 300,
+              "conc": 1,
+              "contexto": "1"
+            }
+          },
+          {
+            "first": 18,
+            "repeat": 21,
+            "input": {
+              "droga": "lido",
+              "peso": 70,
+              "limite": 4.5,
+              "teto": null,
+              "conc": 1,
+              "contexto": "1"
+            }
+          },
+          {
+            "first": 23,
+            "repeat": 26,
+            "input": {
+              "droga": "lido",
+              "peso": 70,
+              "limite": 4.5,
+              "teto": 300,
+              "conc": null,
+              "contexto": "1"
+            }
+          }
+        ],
+        "coverageStatusUnchanged": true
+      },
+      "publicCandidateBankOmitted": true
+    },
+    "limits": "Nenhum limite de fármaco é preenchido ou recomendado automaticamente. Não calcula toxicidade individual nem garante segurança; misturas e doses acumuladas exigem avaliação específica.",
+    "methodVersion": "Conversão de limite documentado no protocolo; sem máximo universal",
+    "currentMethodSource": {
+      "title": "DailyMed · lidocaína HCl · limites específicos da formulação e população",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=a7529e5b-47b1-4148-98dd-65aecc33a8c3",
+      "version": "Conversão de limite documentado no protocolo; sem máximo universal",
+      "checkedAt": "2026-10-03",
+      "access": "manufacturer-regulatory-label"
+    },
+    "primaryVerification": {
+      "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=a7529e5b-47b1-4148-98dd-65aecc33a8c3",
+      "checked": "Bula primária do fabricante no DailyMed: limites em mg/kg e mg dependem da população e da formulação. Implementação converte limites confirmados pelo usuário; não atribui um máximo universal ao fármaco.",
+      "access": "manufacturer-regulatory-label"
+    },
     "clinicalValidation": "not-performed",
-    "suppressLegacyFormula": true,
-    "formulaOverride": "A dose de anestésico local depende de fármaco, concentração, via, técnica, paciente e exposições combinadas. Os tetos fixos do importador aguardam revisão."
+    "languageReview": "not-performed",
+    "reviewStatus": "needs-review",
+    "implementationStatus": "available",
+    "versionEvidence": {
+      "status": "explicit-implemented-variant-and-existing-source-proofs-recorded",
+      "checkedAt": "2026-10-04T17:52:09.841Z",
+      "declaredMethodVersion": "Conversão de limite documentado no protocolo; sem máximo universal",
+      "implementedVariant": "Limite matemático informado = min(peso × limite mg/kg, teto mg); volume correspondente = limite mg/(concentração % × 10).",
+      "inputContract": {
+        "fields": [
+          {
+            "key": "droga",
+            "label": "Anestésico local",
+            "type": "sel",
+            "optional": false,
+            "options": {
+              "lido": "Lidocaína sem vasoconstritor",
+              "lidoepi": "Lidocaína com epinefrina",
+              "bupi": "Bupivacaína sem vasoconstritor",
+              "bupiepi": "Bupivacaína com epinefrina",
+              "ropi": "Ropivacaína"
+            }
+          },
+          {
+            "key": "peso",
+            "label": "Peso",
+            "type": "num",
+            "min": 3,
+            "max": 200,
+            "unit": "kg",
+            "optional": false,
+            "options": null
+          },
+          {
+            "key": "limite",
+            "label": "Limite de dose por peso no protocolo",
+            "type": "num",
+            "min": 0.1,
+            "max": 20,
+            "unit": "mg/kg",
+            "optional": false,
+            "options": null
+          },
+          {
+            "key": "teto",
+            "label": "Limite absoluto no protocolo",
+            "type": "num",
+            "min": 1,
+            "max": 2000,
+            "unit": "mg",
+            "optional": false,
+            "options": null
+          },
+          {
+            "key": "conc",
+            "label": "Concentração da solução",
+            "type": "num",
+            "min": 0.1,
+            "max": 5,
+            "unit": "%",
+            "optional": false,
+            "options": null
+          },
+          {
+            "key": "contexto",
+            "label": "Via, técnica, população, formulação e limites na bula/protocolo foram conferidos; ausência de mistura ou outras exposições confirmada?",
+            "type": "sel",
+            "optional": false,
+            "options": {
+              "0": "Não",
+              "1": "Sim"
+            }
+          }
+        ],
+        "hash": "f66b63e0bbc4bd8e0258f770ed905f01bd9d1e662e03bced1030d251d90ea825",
+        "hashInputDefinition": "SHA256 of UTF8 JSON.stringify({id:tool.id,fields:tool.fields,formula:tool.formula,config:tool.config||null}), preserving declared order/value types; not a hash of versionEvidence.inputContract.fields display projection."
+      },
+      "sourceEditions": [
+        {
+          "citation": "DailyMed · lidocaína HCl · limites específicos da formulação e população",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=a7529e5b-47b1-4148-98dd-65aecc33a8c3",
+          "class": "existing-source-record-transcribed",
+          "declaredCitationPreserved": true,
+          "sourceIdentityRecheckedInThisNormalization": false,
+          "publicationEditionConfirmationInThisNormalization": "not-performed",
+          "fullTextRetrievalInThisNormalization": false,
+          "formulaConformance": "not-assessed"
+        },
+        {
+          "citation": "Rosenberg PH, Veering BT, Urmey WF. Maximum recommended doses of local anesthetics: a multifactorial concept. Reg Anesth Pain Med, 2004.",
+          "url": "https://doi.org/10.1016/j.rapm.2004.08.003",
+          "class": "existing-source-record-transcribed",
+          "declaredCitationPreserved": true,
+          "sourceIdentityRecheckedInThisNormalization": false,
+          "publicationEditionConfirmationInThisNormalization": "not-performed",
+          "fullTextRetrievalInThisNormalization": false,
+          "formulaConformance": "not-assessed"
+        },
+        {
+          "citation": "Neal JM et al. The Third American Society of Regional Anesthesia and Pain Medicine Practice Advisory on Local Anesthetic Systemic Toxicity: executive summary 2017. Reg Anesth Pain Med, 2018.",
+          "url": "https://doi.org/10.1097/AAP.0000000000000720",
+          "class": "existing-source-record-transcribed",
+          "declaredCitationPreserved": true,
+          "sourceIdentityRecheckedInThisNormalization": false,
+          "publicationEditionConfirmationInThisNormalization": "not-performed",
+          "fullTextRetrievalInThisNormalization": false,
+          "formulaConformance": "not-assessed"
+        }
+      ],
+      "existingSourceEvidence": {
+        "currentMethodSource": {
+          "title": "DailyMed · lidocaína HCl · limites específicos da formulação e população",
+          "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=a7529e5b-47b1-4148-98dd-65aecc33a8c3",
+          "version": "Conversão de limite documentado no protocolo; sem máximo universal",
+          "checkedAt": "2026-10-03",
+          "access": "manufacturer-regulatory-label"
+        },
+        "primaryVerification": {
+          "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=a7529e5b-47b1-4148-98dd-65aecc33a8c3",
+          "checked": "Bula primária do fabricante no DailyMed: limites em mg/kg e mg dependem da população e da formulação. Implementação converte limites confirmados pelo usuário; não atribui um máximo universal ao fármaco.",
+          "access": "manufacturer-regulatory-label"
+        }
+      },
+      "editionRecordingScope": "The methodVersion and all previously recorded source access/edition proofs are transcribed unchanged. This technical normalization makes no new bibliographic/full-text/source-formula confirmation; named existing read scopes remain in existingSourceEvidence. A missing standardized container did not mean the method edition was missing.",
+      "publicationEditionConfirmationReevaluated": false,
+      "fullFormulaConformanceReviewed": false,
+      "formulaConformance": "Not established by technical hashes or metadata normalization; retain existing bounded source arithmetic and clinical review separately.",
+      "independentArithmetic": {
+        "status": "passed",
+        "testedAt": "2026-10-03",
+        "total": 29,
+        "passed": 29,
+        "evidencePath": "reports/review-20261003/restored-methods-source-rules.json",
+        "scope": "Independent expected values and source-rule boundary checks; not clinical approval.",
+        "sourceRowCount": 29,
+        "uniqueApiInputCount": 24,
+        "inputIdentity": {
+          "definition": "Distinct JSON input objects within each method after recursively sorting object keys; array order, numeric values and JSON value types preserved. Uses stored input/inputs before implicit default completion, numeric coercion or clinical feature interpretation. Identity across different methods is not collapsed. Repeated scenarios are retained and coverage status is unchanged.",
+          "audit": {
+            "file": "reports/review-20261003/independent-source-corpus-input-identity-audit-final25.json",
+            "sha256": "35d65e84c5608a5f572fce6837f0a8c101b2266f5d6eec32a3d60d2bb6b022ca"
+          },
+          "sourceRows": 29,
+          "uniqueApiInputs": 24,
+          "duplicateRows": 5,
+          "duplicates": [
+            {
+              "first": 8,
+              "repeat": 11,
+              "input": {
+                "droga": "lido",
+                "peso": null,
+                "limite": 4.5,
+                "teto": 300,
+                "conc": 1,
+                "contexto": "1"
+              }
+            },
+            {
+              "first": 3,
+              "repeat": 13,
+              "input": {
+                "droga": "lido",
+                "peso": 70,
+                "limite": null,
+                "teto": 300,
+                "conc": 1,
+                "contexto": "1"
+              }
+            },
+            {
+              "first": 3,
+              "repeat": 16,
+              "input": {
+                "droga": "lido",
+                "peso": 70,
+                "limite": null,
+                "teto": 300,
+                "conc": 1,
+                "contexto": "1"
+              }
+            },
+            {
+              "first": 18,
+              "repeat": 21,
+              "input": {
+                "droga": "lido",
+                "peso": 70,
+                "limite": 4.5,
+                "teto": null,
+                "conc": 1,
+                "contexto": "1"
+              }
+            },
+            {
+              "first": 23,
+              "repeat": 26,
+              "input": {
+                "droga": "lido",
+                "peso": 70,
+                "limite": 4.5,
+                "teto": 300,
+                "conc": null,
+                "contexto": "1"
+              }
+            }
+          ],
+          "coverageStatusUnchanged": true
+        },
+        "publicCandidateBankOmitted": true
+      },
+      "clinicalApproval": "not-performed",
+      "translationApproval": "not-performed",
+      "releaseApproval": "not-performed",
+      "professionalLanguageApproval": "not-performed",
+      "sourceRightsApproval": "not-performed",
+      "implementationHash": "660beb78d47ff28fdd638b75861417aed61559ffef6cb3c25cc60d789aec9607",
+      "implementationHashScope": "Exact current calculator.js bytes, individually verified in three app mirrors. This is not a full dependency-closure hash.",
+      "technicalBindingHistory": [
+        {
+          "recordedAt": "2026-10-04T17:52:09.841Z",
+          "scope": "First standardized container; explicit existing methodVersion and source proof objects preserved.",
+          "priorStandardizedContainerPresent": false,
+          "priorImplementationVersion": null,
+          "explicitMethodVersion": "Conversão de limite documentado no protocolo; sem máximo universal",
+          "sourceEvidenceSha256": "e69549727cc06ad5c83dd8e16887ce619c6d5a35c8d685d0a7d94195852dbdd2",
+          "metadataAudit": {
+            "file": "reports/review-20261003/native-technical-bindings-audit-publication-final26.json",
+            "sha256": "e615fa3a42555f8fbeb4de8763893c3e981a73eae4c8c1994b33727e19ebd8c8"
+          }
+        }
+      ]
+    },
+    "implementationVersion": "dose-maxima-anestesico-local@native-2026-10-04+660beb78d47f"
   },
-  "clinicalValidation": "not-performed"
+  "sourceToolSha256": "a59a4e3902c4831997762f307a5afe96cf256508426b89aaf9bdcd5632bf8e02",
+  "omittedFullReferenceBanks": [
+    {
+      "at": "independentArithmeticTest.cases",
+      "rows": 29,
+      "sha256": "30a3324c4ac7c3548fa74d4588995f1b10804fba9fed140d367b33ee949d1382",
+      "reason": "Full independent reference bank omitted from standalone public candidate; original evidence references retained"
+    },
+    {
+      "at": "versionEvidence.independentArithmetic.cases",
+      "rows": 29,
+      "sha256": "30a3324c4ac7c3548fa74d4588995f1b10804fba9fed140d367b33ee949d1382",
+      "reason": "Embedded complete independent bank omitted; edition, scope and evidence references retained"
+    }
+  ],
+  "currentSource": {
+    "file": "apps/website/private/tool-code/dose-maxima-anestesico-local/calculator.js",
+    "bytes": 517,
+    "sha256": "660beb78d47ff28fdd638b75861417aed61559ffef6cb3c25cc60d789aec9607"
+  },
+  "clinicalValidation": "not-performed",
+  "professionalLanguageReview": "not-performed",
+  "sourceRightsApproval": "not-performed"
 }

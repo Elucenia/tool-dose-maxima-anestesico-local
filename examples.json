@@ -1,88 +1,149 @@
 [
   {
-    "label": "Lidocaína 1% sem vaso, 70 kg: 315 mg limitado a 300 mg = 30 mL",
+    "id": "dose-maxima-anestesico-local",
+    "kind": "native-source-reference",
+    "index": 0,
+    "name": "Vetor sintético principal de referência",
+    "originalInput": {
+      "droga": "lido",
+      "peso": 70,
+      "limite": 4.5,
+      "teto": 300,
+      "conc": 1,
+      "contexto": "1"
+    },
     "input": {
       "droga": "lido",
       "peso": 70,
-      "conc": 1
+      "limite": 4.5,
+      "teto": 300,
+      "conc": 1,
+      "contexto": "1"
     },
+    "amendments": [],
     "expected": {
       "raw": {
         "dose": 300,
-        "vol": 30
+        "vol": 30,
+        "weightLimit": 315,
+        "cap": 300
       },
-      "verdict": "teto",
-      "level": "info"
+      "main": "300,00"
     },
+    "recordedResult": {
+      "main": [
+        "300,00",
+        "mg"
+      ],
+      "label": "Limite do protocolo informado",
+      "raw": {
+        "dose": 300,
+        "vol": 30,
+        "weightLimit": 315,
+        "cap": 300
+      }
+    },
+    "provenance": {
+      "receiptSha256": "be450b3731f8b30a13e0b36bf1f2f579bce00de325c5622bc3e526235c1c79f7",
+      "scope": "Existing documented synthetic reference and precise source-audit regression baseline; no new independent oracle"
+    }
+  },
+  {
+    "id": "dose-maxima-anestesico-local",
+    "kind": "native-source-reference",
+    "index": 1,
+    "name": "Limite por peso inferior ao teto",
     "originalInput": {
       "droga": "lido",
-      "peso": 70,
-      "conc": 1
+      "peso": 40,
+      "limite": 4.5,
+      "teto": 300,
+      "conc": 2,
+      "contexto": "1"
     },
-    "expandedZeroOptions": []
-  },
-  {
-    "label": "Lidocaína 2% com epinefrina, 50 kg: 350 mg = 17,5 mL",
     "input": {
-      "droga": "lidoepi",
-      "peso": 50,
-      "conc": 2
+      "droga": "lido",
+      "peso": 40,
+      "limite": 4.5,
+      "teto": 300,
+      "conc": 2,
+      "contexto": "1"
     },
+    "amendments": [],
     "expected": {
       "raw": {
-        "dose": 350,
-        "vol": 17.5
+        "dose": 180,
+        "vol": 9,
+        "weightLimit": 180,
+        "cap": 300
       },
-      "verdict": "peso",
-      "level": "info"
+      "main": "180,00"
     },
-    "originalInput": {
-      "droga": "lidoepi",
-      "peso": 50,
-      "conc": 2
+    "recordedResult": {
+      "main": [
+        "180,00",
+        "mg"
+      ],
+      "label": "Limite do protocolo informado",
+      "raw": {
+        "dose": 180,
+        "vol": 9,
+        "weightLimit": 180,
+        "cap": 300
+      }
     },
-    "expandedZeroOptions": []
+    "provenance": {
+      "receiptSha256": "be450b3731f8b30a13e0b36bf1f2f579bce00de325c5622bc3e526235c1c79f7",
+      "scope": "Existing documented synthetic reference and precise source-audit regression baseline; no new independent oracle"
+    }
   },
   {
-    "label": "Bupivacaína 0,5% sem vaso, 60 kg: 150 mg = 30 mL",
-    "input": {
-      "droga": "bupi",
-      "peso": 60,
-      "conc": 0.5
-    },
-    "expected": {
-      "raw": {
-        "dose": 150,
-        "vol": 30
-      },
-      "level": "info"
-    },
-    "originalInput": {
-      "droga": "bupi",
-      "peso": 60,
-      "conc": 0.5
-    },
-    "expandedZeroOptions": []
-  },
-  {
-    "label": "Ropivacaína 0,75%, 80 kg: 240 mg limitado a 200 mg = 26,7 mL",
-    "input": {
-      "droga": "ropi",
-      "peso": 80,
-      "conc": 0.75
-    },
-    "expected": {
-      "raw": {
-        "dose": 200,
-        "vol": 26.667
-      },
-      "level": "info"
-    },
+    "id": "dose-maxima-anestesico-local",
+    "kind": "native-source-reference",
+    "index": 2,
+    "name": "Não usa máximo universal do fármaco",
     "originalInput": {
       "droga": "ropi",
-      "peso": 80,
-      "conc": 0.75
+      "peso": 50,
+      "limite": 2,
+      "teto": 200,
+      "conc": 0.2,
+      "contexto": "1"
     },
-    "expandedZeroOptions": []
+    "input": {
+      "droga": "ropi",
+      "peso": 50,
+      "limite": 2,
+      "teto": 200,
+      "conc": 0.2,
+      "contexto": "1"
+    },
+    "amendments": [],
+    "expected": {
+      "raw": {
+        "dose": 100,
+        "vol": 50,
+        "weightLimit": 100,
+        "cap": 200
+      },
+      "main": "100,00"
+    },
+    "recordedResult": {
+      "main": [
+        "100,00",
+        "mg"
+      ],
+      "label": "Limite do protocolo informado",
+      "raw": {
+        "dose": 100,
+        "vol": 50,
+        "weightLimit": 100,
+        "cap": 200
+      }
+    },
+    "provenance": {
+      "receiptSha256": "be450b3731f8b30a13e0b36bf1f2f579bce00de325c5622bc3e526235c1c79f7",
+      "scope": "Existing documented synthetic reference and precise source-audit regression baseline; no new independent oracle"
+    }
   }
 ]

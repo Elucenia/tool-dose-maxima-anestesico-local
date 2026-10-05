@@ -1,0 +1,531 @@
+{
+  "at": "2026-10-05T15:24:36.545Z",
+  "id": "dose-maxima-anestesico-local",
+  "engine": {
+    "file": "apps/website/private/tool-code/dose-maxima-anestesico-local/calculator.js",
+    "bytes": 517,
+    "sha256": "660beb78d47ff28fdd638b75861417aed61559ffef6cb3c25cc60d789aec9607"
+  },
+  "sourceParity": "Node current source / per-tool browser VM outputs match",
+  "cases": [
+    {
+      "id": "dose-maxima-anestesico-local",
+      "index": 0,
+      "name": "Vetor sintético principal de referência",
+      "input": {
+        "droga": "lido",
+        "peso": 70,
+        "limite": 4.5,
+        "teto": 300,
+        "conc": 1,
+        "contexto": "1"
+      },
+      "expected": {
+        "raw": {
+          "dose": 300,
+          "vol": 30,
+          "weightLimit": 315,
+          "cap": 300
+        },
+        "main": "300,00"
+      },
+      "obtained": {
+        "id": "dose-maxima-anestesico-local",
+        "main": [
+          "300,00",
+          "mg"
+        ],
+        "label": "Limite do protocolo informado",
+        "raw": {
+          "dose": 300,
+          "vol": 30,
+          "weightLimit": 315,
+          "cap": 300
+        },
+        "methodVersion": "Conversão de limite documentado no protocolo; sem máximo universal",
+        "clinicalValidation": "not-performed"
+      },
+      "browserVm": {
+        "id": "dose-maxima-anestesico-local",
+        "main": [
+          "300,00",
+          "mg"
+        ],
+        "label": "Limite do protocolo informado",
+        "raw": {
+          "dose": 300,
+          "vol": 30,
+          "weightLimit": 315,
+          "cap": 300
+        },
+        "methodVersion": "Conversão de limite documentado no protocolo; sem máximo universal",
+        "clinicalValidation": "not-performed"
+      },
+      "checks": [
+        {
+          "at": "status",
+          "expected": 200,
+          "obtained": 200,
+          "passed": true
+        },
+        {
+          "at": "result-object",
+          "expected": true,
+          "obtained": true,
+          "passed": true
+        },
+        {
+          "at": "result.main",
+          "expected": "300,00",
+          "obtained": "300,00",
+          "scope": "Recorded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.dose",
+          "expected": 300,
+          "obtained": 300,
+          "tolerance": 1e-8,
+          "difference": 0,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.vol",
+          "expected": 30,
+          "obtained": 30,
+          "tolerance": 1e-8,
+          "difference": 0,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.weightLimit",
+          "expected": 315,
+          "obtained": 315,
+          "tolerance": 1e-8,
+          "difference": 0,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.cap",
+          "expected": 300,
+          "obtained": 300,
+          "tolerance": 1e-8,
+          "difference": 0,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.dose",
+          "expected": 300,
+          "obtained": 300,
+          "tolerance": 3e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.vol",
+          "expected": 30,
+          "obtained": 30,
+          "tolerance": 1e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.weightLimit",
+          "expected": 315,
+          "obtained": 315,
+          "tolerance": 3.15e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.cap",
+          "expected": 300,
+          "obtained": 300,
+          "tolerance": 3e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main.length",
+          "expected": 2,
+          "obtained": 2,
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[0]",
+          "expected": "300,00",
+          "obtained": "300,00",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[1]",
+          "expected": "mg",
+          "obtained": "mg",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        }
+      ],
+      "notCompared": [],
+      "status": "passed"
+    },
+    {
+      "id": "dose-maxima-anestesico-local",
+      "index": 1,
+      "name": "Limite por peso inferior ao teto",
+      "input": {
+        "droga": "lido",
+        "peso": 40,
+        "limite": 4.5,
+        "teto": 300,
+        "conc": 2,
+        "contexto": "1"
+      },
+      "expected": {
+        "raw": {
+          "dose": 180,
+          "vol": 9,
+          "weightLimit": 180,
+          "cap": 300
+        },
+        "main": "180,00"
+      },
+      "obtained": {
+        "id": "dose-maxima-anestesico-local",
+        "main": [
+          "180,00",
+          "mg"
+        ],
+        "label": "Limite do protocolo informado",
+        "raw": {
+          "dose": 180,
+          "vol": 9,
+          "weightLimit": 180,
+          "cap": 300
+        },
+        "methodVersion": "Conversão de limite documentado no protocolo; sem máximo universal",
+        "clinicalValidation": "not-performed"
+      },
+      "browserVm": {
+        "id": "dose-maxima-anestesico-local",
+        "main": [
+          "180,00",
+          "mg"
+        ],
+        "label": "Limite do protocolo informado",
+        "raw": {
+          "dose": 180,
+          "vol": 9,
+          "weightLimit": 180,
+          "cap": 300
+        },
+        "methodVersion": "Conversão de limite documentado no protocolo; sem máximo universal",
+        "clinicalValidation": "not-performed"
+      },
+      "checks": [
+        {
+          "at": "status",
+          "expected": 200,
+          "obtained": 200,
+          "passed": true
+        },
+        {
+          "at": "result-object",
+          "expected": true,
+          "obtained": true,
+          "passed": true
+        },
+        {
+          "at": "result.main",
+          "expected": "180,00",
+          "obtained": "180,00",
+          "scope": "Recorded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.dose",
+          "expected": 180,
+          "obtained": 180,
+          "tolerance": 1e-8,
+          "difference": 0,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.vol",
+          "expected": 9,
+          "obtained": 9,
+          "tolerance": 1e-8,
+          "difference": 0,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.weightLimit",
+          "expected": 180,
+          "obtained": 180,
+          "tolerance": 1e-8,
+          "difference": 0,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.cap",
+          "expected": 300,
+          "obtained": 300,
+          "tolerance": 1e-8,
+          "difference": 0,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.dose",
+          "expected": 180,
+          "obtained": 180,
+          "tolerance": 1.8e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.vol",
+          "expected": 9,
+          "obtained": 9,
+          "tolerance": 1e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.weightLimit",
+          "expected": 180,
+          "obtained": 180,
+          "tolerance": 1.8e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.cap",
+          "expected": 300,
+          "obtained": 300,
+          "tolerance": 3e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main.length",
+          "expected": 2,
+          "obtained": 2,
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[0]",
+          "expected": "180,00",
+          "obtained": "180,00",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[1]",
+          "expected": "mg",
+          "obtained": "mg",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        }
+      ],
+      "notCompared": [],
+      "status": "passed"
+    },
+    {
+      "id": "dose-maxima-anestesico-local",
+      "index": 2,
+      "name": "Não usa máximo universal do fármaco",
+      "input": {
+        "droga": "ropi",
+        "peso": 50,
+        "limite": 2,
+        "teto": 200,
+        "conc": 0.2,
+        "contexto": "1"
+      },
+      "expected": {
+        "raw": {
+          "dose": 100,
+          "vol": 50,
+          "weightLimit": 100,
+          "cap": 200
+        },
+        "main": "100,00"
+      },
+      "obtained": {
+        "id": "dose-maxima-anestesico-local",
+        "main": [
+          "100,00",
+          "mg"
+        ],
+        "label": "Limite do protocolo informado",
+        "raw": {
+          "dose": 100,
+          "vol": 50,
+          "weightLimit": 100,
+          "cap": 200
+        },
+        "methodVersion": "Conversão de limite documentado no protocolo; sem máximo universal",
+        "clinicalValidation": "not-performed"
+      },
+      "browserVm": {
+        "id": "dose-maxima-anestesico-local",
+        "main": [
+          "100,00",
+          "mg"
+        ],
+        "label": "Limite do protocolo informado",
+        "raw": {
+          "dose": 100,
+          "vol": 50,
+          "weightLimit": 100,
+          "cap": 200
+        },
+        "methodVersion": "Conversão de limite documentado no protocolo; sem máximo universal",
+        "clinicalValidation": "not-performed"
+      },
+      "checks": [
+        {
+          "at": "status",
+          "expected": 200,
+          "obtained": 200,
+          "passed": true
+        },
+        {
+          "at": "result-object",
+          "expected": true,
+          "obtained": true,
+          "passed": true
+        },
+        {
+          "at": "result.main",
+          "expected": "100,00",
+          "obtained": "100,00",
+          "scope": "Recorded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.dose",
+          "expected": 100,
+          "obtained": 100,
+          "tolerance": 1e-8,
+          "difference": 0,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.vol",
+          "expected": 50,
+          "obtained": 50,
+          "tolerance": 1e-8,
+          "difference": 0,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.weightLimit",
+          "expected": 100,
+          "obtained": 100,
+          "tolerance": 1e-8,
+          "difference": 0,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "result.raw.cap",
+          "expected": 200,
+          "obtained": 200,
+          "tolerance": 1e-8,
+          "difference": 0,
+          "scope": "Recorded rounded source reference",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.dose",
+          "expected": 100,
+          "obtained": 100,
+          "tolerance": 1e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.vol",
+          "expected": 50,
+          "obtained": 50,
+          "tolerance": 1e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.weightLimit",
+          "expected": 100,
+          "obtained": 100,
+          "tolerance": 1e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.raw.cap",
+          "expected": 200,
+          "obtained": 200,
+          "tolerance": 2e-10,
+          "difference": 0,
+          "scope": "Existing precise source-audit transport regression, not independent formula validation",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main.length",
+          "expected": 2,
+          "obtained": 2,
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[0]",
+          "expected": "100,00",
+          "obtained": "100,00",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        },
+        {
+          "at": "regression.result.main[1]",
+          "expected": "mg",
+          "obtained": "mg",
+          "scope": "Existing source-audit public representation regression",
+          "passed": true
+        }
+      ],
+      "notCompared": [],
+      "status": "passed"
+    }
+  ],
+  "summary": {
+    "cases": 3,
+    "passed": 3,
+    "failed": 0,
+    "checks": 42
+  },
+  "newIndependentOracle": false,
+  "clinicalApproval": false,
+  "professionalLanguageApproval": false
+}
